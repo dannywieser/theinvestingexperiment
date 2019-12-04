@@ -1,0 +1,13 @@
+* {
+  font-family: 'Roboto Mono', monospace;
+}
+
+body {
+  background-color: #fdf6e3;
+  color: #657a81;
+}
+
+.header h1 {
+  font-size: 1em;
+  font-weight: bolder;
+}
