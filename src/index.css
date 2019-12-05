@@ -3,16 +3,17 @@
 }
 
 body {
-  background-color: #fdf6e3;
+  background-color: #eadbc4;
   color: #657a81;
   margin: 0;
   min-width: 0;
+  height: 100vh;
 }
 
 .header {
   position: sticky;
   top: 0;
-  background-color: #ece7d5;
+  background-color: #453d3f;
   opacity: 0.9;
   display: grid;
   grid-gap: 10px;
@@ -27,5 +28,9 @@ body {
 .header h1 {
   font-size: 1em;
   font-weight: bolder;
-  color: #002b36;
+  color: #f7f2ea;
+}
+
+.chart {
+  height: 100%;
 }
