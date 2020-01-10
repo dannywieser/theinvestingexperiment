@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { processTransactions } from '../../utils';
 import data from '../../data';
@@ -19,25 +19,49 @@ export const TransactionCardRow = ({ label, value, type }) => {
   );
 };
 
+export const DetailButton = ({ doToggle, isDetailVisible }) => {
+  const label = isDetailVisible ? 'hide details' : 'show details';
+  return (
+    <div className="more-link" onClick={doToggle}>
+      {label}
+    </div>
+  );
+};
+
+export const MoreDetails = ({ transaction, isDetailVisible }) => {
+  const {
+    meta: { date, type },
+  } = transaction;
+  return isDetailVisible ? (
+    <div className="more-detail">
+      <TransactionCardRow label="total CAD" value={date} />
+      <TransactionCardRow label="total USD" value={type} />
+    </div>
+  ) : null;
+};
+
 export const TransactionCard = ({ transaction }) => {
+  const [isDetailVisible, setShowDetail] = useState(false);
+  const toggle = () => setShowDetail(!isDetailVisible);
   const {
     cash = {},
     holdings = {},
-    meta: { date, type, note = '' },
+    meta: { date, type, note = '', fee },
   } = transaction;
   const { usd: cashusd = 0, cad: cashcad = 0 } = cash;
   const { usd: holdingsusd = 0, cad: holdingscad = 0 } = holdings;
-  console.log(transaction);
   return (
     <div className="transaction-card">
       <TransactionCardRow label="date" value={date} />
       <TransactionCardRow label="type" value={type} />
-      <TransactionCardRow label="Cash Adjust (CAD)" value={cashcad} type="dollars" />
-      <TransactionCardRow label="Cash Adjust (USD)" value={cashusd} type="dollars" />
-      <TransactionCardRow label="Holdings Adjust (CAD)" value={holdingscad} type="dollars" />
-      <TransactionCardRow label="Holdings Adjust (USD)" value={holdingsusd} type="dollars" />
-      <TransactionCardRow label="Fee" value={holdingsusd} type="dollars" />
-      <TransactionCardRow label="Note" value={note} />
+      <TransactionCardRow label="cash adjust (CAD)" value={cashcad} type="dollars" />
+      <TransactionCardRow label="cash adjust (USD)" value={cashusd} type="dollars" />
+      <TransactionCardRow label="holdings adjust (CAD)" value={holdingscad} type="dollars" />
+      <TransactionCardRow label="holdings adjust (USD)" value={holdingsusd} type="dollars" />
+      <TransactionCardRow label="fee" value={fee} type="dollars" />
+      <TransactionCardRow label="notes" value={note} />
+      <MoreDetails transaction={transaction} isDetailVisible={isDetailVisible} />
+      <DetailButton isDetailVisible={isDetailVisible} doToggle={toggle} />
     </div>
   );
 };

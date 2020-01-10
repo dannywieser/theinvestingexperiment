@@ -1,3 +1,5 @@
+import { transactions } from '../data/overlord';
+
 const uuidv4 = require('uuid/v4');
 
 const startPortfolio = {
@@ -20,10 +22,11 @@ function buildMeta({ date, type, fee = 0, note }) {
   return { date, type, fee, note, uuid: uuidv4() };
 }
 
+function calcTotals 
+
 function adjustCash(transaction, portfolio) {
-  const {
-    cash: { usd = 0, cad = 0 },
-  } = transaction;
+  const { cash = {} } = transaction;
+  const { usd = 0, cad = 0 } = cash;
   return {
     cad: portfolio.cash.cad + cad,
     usd: portfolio.cash.usd + usd,
@@ -31,9 +34,8 @@ function adjustCash(transaction, portfolio) {
 }
 
 function adjustHoldings(transaction, portfolio) {
-  const {
-    holdings: { usd = 0, cad = 0 },
-  } = transaction;
+  const { holdings = {} } = transaction;
+  const { usd = 0, cad = 0 } = holdings;
   return {
     cad: portfolio.holdings.cad + cad,
     usd: portfolio.holdings.usd + usd,
@@ -52,7 +54,20 @@ function contribute(transaction, portfolio = startPortfolio) {
     transaction: { meta: buildMeta(transaction), cash, holdings, results: portfolio },
   };
 }
-const start = contribute;
+
+function start(transaction, portfolio = startPortfolio) {
+  const { cash, holdings } = transaction;
+  portfolio = {
+    ...portfolio,
+    contributions: transaction.contributions,
+    cash: adjustCash(transaction, portfolio),
+    holdings: adjustHoldings(transaction, portfolio),
+  };
+  return {
+    portfolio,
+    transaction: { meta: buildMeta(transaction), cash, holdings, results: portfolio },
+  };
+}
 
 function buy(transaction, portfolio = startPortfolio) {
   const { cash, holdings } = transaction;

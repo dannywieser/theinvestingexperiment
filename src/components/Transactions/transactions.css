@@ -10,7 +10,7 @@
 
 .transaction-card {
   box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.02);
-  margin-bottom: 8px;
+  margin-bottom: px;
   padding: 16px;
 }
 
@@ -25,4 +25,15 @@
 
 .card-row .dollars.negative {
   color: red;
+}
+
+.more-link {
+  float: right;
+  cursor: pointer;
+  color: #4682b4;
+  text-decoration: underline;
+}
+
+.more-detail {
+  margin-top: 16px;
 }
