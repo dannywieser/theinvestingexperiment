@@ -1,4 +1,5 @@
 import React from 'react';
+import 'babel-polyfill';
 import './index.css';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import { Header, Nav, TheExperiment, Results, Transactions, Blog } from './components';
@@ -17,7 +18,12 @@ const App = () => (
         }}
       />
       <Header />
-      <Nav items={[{ to: '/theexperiment', label: 'theexperiment' }]} />
+      <Nav
+        items={[
+          { to: '/theexperiment', label: 'theexperiment' },
+          { to: '/transactions', label: 'transactions' },
+        ]}
+      />
       <Switch>
         <Redirect exact from="/" to="/theexperiment" />
         <Route path="/theexperiment" component={TheExperiment} />
