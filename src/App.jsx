@@ -1,7 +1,7 @@
 import React from 'react';
 import './index.css';
-import { BrowserRouter as Router, Redirect } from 'react-router-dom';
-import { Header, Nav } from './components';
+import { BrowserRouter as Router, Redirect, Switch, Route } from 'react-router-dom';
+import { Header, Nav, TheExperiment, Results, Transactions, Blog } from './components';
 
 const App = () => (
   <div className="App">
@@ -9,6 +9,12 @@ const App = () => (
       <Redirect from="/" to="theexperiment" />
       <Header />
       <Nav />
+      <Switch>
+        <Route exact path="/theexperiment" component={TheExperiment} />
+        <Route path="/transactions" component={Transactions} />
+        <Route path="/results" component={Results} />
+        <Route path="/blog" component={Blog} />
+      </Switch>
     </Router>
   </div>
 );
