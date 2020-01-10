@@ -1,0 +1,18 @@
+.intro {
+  color: black;
+  padding: 24px;
+  text-align: center;
+}
+
+.dates {
+  font-weight: 900;
+  color: #4682b4;
+}
+
+.accounts {
+  color: black;
+}
+
+.account li {
+  padding: 8px;
+}

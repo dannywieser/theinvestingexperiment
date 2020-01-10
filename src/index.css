@@ -7,3 +7,12 @@ body {
   color: #657a81;
   margin: 0;
 }
+
+h2 {
+  font-size: 1em;
+}
+
+strong {
+  color: #4682b4;
+  font-weight: 900;
+}
