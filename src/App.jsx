@@ -6,6 +6,16 @@ import { Header, Nav, TheExperiment, Results, Transactions, Blog } from './compo
 const App = () => (
   <div className="App">
     <Router>
+      <Route
+        path="/"
+        render={({ location }) => {
+          if (typeof window.ga === 'function') {
+            window.ga('set', 'page', location.pathname + location.search);
+            window.ga('send', 'pageview');
+          }
+          return null;
+        }}
+      />
       <Header />
       <Nav items={[{ to: '/theexperiment', label: 'theexperiment' }]} />
       <Switch>
