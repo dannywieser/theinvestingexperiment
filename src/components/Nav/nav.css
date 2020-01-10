@@ -1,0 +1,40 @@
+.topnav {
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #202020;
+  text-align: center;
+  text-decoration: none;
+  width: 100%;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  color: #73c2fb;
+}
+
+/* Add an active class to highlight the current page */
+.topnav a.active {
+  color: #4682b4;
+}
+
+.topnav ul {
+  list-style: none;
+  margin: 0;
+}
+
+.topnav ul li {
+  margin: 0;
+  display: inline-block;
+  position: relative;
+  width: 25%;
+}
+
+@media screen and (max-width: 44em) {
+  .topnav ul li {
+    width: 100%;
+  }
+}

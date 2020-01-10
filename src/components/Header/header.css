@@ -1,0 +1,16 @@
+.highlight {
+  color: #4682b4;
+}
+
+.header {
+  text-align: center;
+  margin-left: 16px;
+  margin-right: 16px;
+  border-bottom: 1px solid #202020;
+}
+
+.header h1 {
+  font-size: 1em;
+  font-weight: bolder;
+  color: #202020;
+}

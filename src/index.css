@@ -3,34 +3,7 @@
 }
 
 body {
-  background-color: #eadbc4;
+  background-color: #fff;
   color: #657a81;
   margin: 0;
-  min-width: 0;
-  height: 100vh;
-}
-
-.header {
-  position: sticky;
-  top: 0;
-  background-color: #453d3f;
-  opacity: 0.9;
-  display: grid;
-  grid-gap: 10px;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-}
-
-.nav {
-  font-size: 0.8em;
-  margin: auto;
-}
-
-.header h1 {
-  font-size: 1em;
-  font-weight: bolder;
-  color: #f7f2ea;
-}
-
-.chart {
-  height: 100%;
 }
