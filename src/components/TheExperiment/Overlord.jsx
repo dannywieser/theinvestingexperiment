@@ -13,9 +13,13 @@ export const Overlord = () => (
         <i> approximately</i> equal positions in.
       </li>
       <li>
-        I will place a stop loss order on each holding that I will adjust in order to lose no more
-        than <strong>8%</strong> off the highest value of the stock while I have a position in it.
-        This type of drop is the only reason I will move out of a position.
+        I will place a{' '}
+        <a target="_blank" href="https://www.investopedia.com/terms/s/stoporder.asp">
+          stop order
+        </a>{' '}
+        on each holding that I will adjust in order to lose no more than <strong>8%</strong> off the
+        highest value of the stock while I have a position in it. This type of drop is the only
+        reason I will move out of a position.
       </li>
       <li>
         I will monitor the target stocks regularly and will be ready to move out of a position only

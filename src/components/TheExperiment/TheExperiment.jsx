@@ -1,12 +1,11 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Switch, Route, Redirect } from 'react-router-dom';
 import './theexperiment.css';
 import { Nav } from '../';
-import { Overlord } from './';
+import { Overlord, Barbarossa, Dynamo, Manhattan } from './';
 
 const TheExperimentBase = ({ location: { pathname } }) => {
-  const overrideActive = pathname === '/' ? '/overlord' : '';
-  console.log(overrideActive, location);
+  const overrideActive = pathname === '/theexperiment' ? '/theexperiment/overlord' : '';
   return (
     <div>
       <div className="intro">
@@ -18,20 +17,31 @@ const TheExperimentBase = ({ location: { pathname } }) => {
           </p>
           <p>It takes a long time to see proper outcomes, so I will run this experiment from</p>
           <p className="dates">January 1, 2020 &mdash; January 1, 2025</p>
-          <p>Here are the codenames and guidelines for each account</p>
+          <p>
+            The consistency across all accounts will be consistent contributions of new cash on a
+            regular basis.
+          </p>
+          <p>The codenames and guidelines for each account are documented below</p>
         </span>
       </div>
       <div className="accounts">
         <Nav
           items={[
-            { to: '/overlord', label: 'overlord' },
-            { to: '/barbarossa', label: 'barbarossa' },
-            { to: '/dynamo', label: 'dynamo' },
-            { to: '/manhattan', label: 'manhattan' },
+            { to: '/theexperiment/overlord', label: 'overlord' },
+            { to: '/theexperiment/barbarossa', label: 'barbarossa' },
+            { to: '/theexperiment/dynamo', label: 'dynamo' },
+            { to: '/theexperiment/manhattan', label: 'manhattan' },
           ]}
           overrideActive={overrideActive}
         />
-        <Overlord />
+
+        <Switch>
+          <Route exact path="/theexperiment/" component={Overlord} />
+          <Route path="/theexperiment/overlord" component={Overlord} />
+          <Route path="/theexperiment/barbarossa" component={Barbarossa} />
+          <Route path="/theexperiment/dynamo" component={Dynamo} />
+          <Route path="/theexperiment/manhattan" component={Manhattan} />
+        </Switch>
       </div>
     </div>
   );

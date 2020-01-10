@@ -1,5 +1,8 @@
 .topnav {
   overflow: hidden;
+  border-bottom: 1px solid #202020;
+  margin-left: 16px;
+  margin-right: 16px;
 }
 
 /* Style the links inside the navigation bar */
@@ -7,7 +10,6 @@
   float: left;
   color: #202020;
   text-align: center;
-  text-decoration: none;
   width: 100%;
 }
 
