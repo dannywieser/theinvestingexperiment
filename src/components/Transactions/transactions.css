@@ -1,3 +1,28 @@
 .transaction-accounts {
   padding-top: 16px;
 }
+
+.transactions {
+  padding: 16px;
+  display: grid;
+  font-size: small;
+}
+
+.transaction-card {
+  box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.02);
+  margin-bottom: 8px;
+  padding: 16px;
+}
+
+.card-row-title {
+  font-weight: bolder;
+  color: #4682b4;
+}
+
+.card-row .dollars {
+  color: green;
+}
+
+.card-row .dollars.negative {
+  color: red;
+}
