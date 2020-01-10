@@ -31,11 +31,10 @@
   margin: 0;
   display: inline-block;
   position: relative;
-  width: 25%;
 }
 
 @media screen and (max-width: 44em) {
   .topnav ul li {
-    width: 100%;
+    width: 100% !important;
   }
 }

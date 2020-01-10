@@ -4,10 +4,18 @@ export const Overlord = () => (
   <div className="account">
     <ul>
       <li>
-        Choose 3-4 [Blue Chip](https://www.investopedia.com/terms/b/bluechip.asp), preferably
-        dividend-paying stocks and that I have strong understanding of; that I will{' '}
-        <strong>buy and hold</strong>
+        Choose 3-4{' '}
+        <a target="_blank" href="https://www.investopedia.com/terms/b/bluechip.asp">
+          Blue Chip
+        </a>
+        , preferably dividend-paying stocks and that I have strong understanding of; that I will{' '}
+        <strong> buy and hold</strong>
         <i> approximately</i> equal positions in.
+      </li>
+      <li>
+        I will place a stop loss order on each holding that I will adjust in order to lose no more
+        than <strong>8%</strong> off the highest value of the stock while I have a position in it.
+        This type of drop is the only reason I will move out of a position.
       </li>
       <li>
         I will monitor the target stocks regularly and will be ready to move out of a position only
@@ -15,7 +23,7 @@ export const Overlord = () => (
         no longer believe in it’s long-term capacity for growth.
       </li>
       <li>
-        Contribute new cash on a bi-weekly basis,{' '}
+        Contribute new cash on a bi-weekly basis,
         <strong>but strategically choose the best time during a year-long period to invest</strong>
       </li>
       <li>
