@@ -8,7 +8,7 @@ import './transactions.css';
 
 const getAccount = ({
   match: {
-    params: { account },
+    params: { account = 'overlord' },
   },
 }) => account;
 

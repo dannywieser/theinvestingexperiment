@@ -10,7 +10,6 @@ export const transactionPath = '/transactions';
 export const Transactions = ({ location: { pathname } }) => {
   const overrideActive =
     pathname === transactionPath ? `${transactionPath}/${accounts.defaultAccount}` : '';
-
   const accountNav = accounts.list.map(account => ({
     to: `${transactionPath}/${account}`,
     label: account,
