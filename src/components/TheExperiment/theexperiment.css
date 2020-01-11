@@ -1,7 +1,9 @@
 .intro {
-  color: black;
-  padding: 24px;
   text-align: center;
+}
+
+.intro ul {
+  text-align: left;
 }
 
 .dates {
@@ -11,9 +13,20 @@
 
 .account {
   color: black;
-  padding: 16px;
 }
 
 .account li {
   padding: 8px;
+}
+
+.card h2 {
+  text-align: center;
+}
+
+.card {
+  color: black;
+  padding: 8px;
+  margin: 16px;
+  background-color: #f9f9f9;
+  box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.02);
 }

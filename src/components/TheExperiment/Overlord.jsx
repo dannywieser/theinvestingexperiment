@@ -4,12 +4,17 @@ export const Overlord = () => (
   <div className="account">
     <ul>
       <li>
+        <strong>goal:</strong>to measure the risk vs reward of direct investment in equities. does
+        the risk involved actually lead to results that are better than a buy-and-hold fund-based
+        strategy?
+      </li>
+      <li>
         Choose 3-4{' '}
         <a target="_blank" href="https://www.investopedia.com/terms/b/bluechip.asp">
           Blue Chip
         </a>
         , preferably dividend-paying stocks and that I have strong understanding of; that I will{' '}
-        <strong> buy and hold</strong>
+        <strong>buy and hold</strong>
         <i> approximately</i> equal positions in.
       </li>
       <li>
@@ -18,8 +23,7 @@ export const Overlord = () => (
           stop order
         </a>{' '}
         on each holding that I will adjust in order to lose no more than <strong>8%</strong> off the
-        highest value of the stock while I have a position in it. This type of drop is the only
-        reason I will move out of a position.
+        highest value of the stock while I have a position in it.
       </li>
       <li>
         I will monitor the target stocks regularly and will be ready to move out of a position only

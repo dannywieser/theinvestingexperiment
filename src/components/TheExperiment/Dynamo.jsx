@@ -4,6 +4,11 @@ export const Dynamo = () => (
   <div className="account">
     <ul>
       <li>
+        <strong>Goal:</strong>See the results of investing in index ETFs. Do lower fees make a
+        substantial difference in return? Are the results better or worse than directly investing in
+        the funds?
+      </li>
+      <li>
         Buy and hold equity-focused{' '}
         <a href="_blank" target="https://www.investopedia.com/etfs-4427784">
           ETFs
@@ -20,7 +25,7 @@ export const Dynamo = () => (
         <a target="_blank" href="https://www.investopedia.com/terms/d/dollarcostaveraging.asp">
           dollar cost averaging
         </a>{' '}
-        to compensate for purchases during drops in the market
+        to compensate for purchases during drops in the market.
       </li>
       <li>
         {' '}
