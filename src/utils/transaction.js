@@ -15,6 +15,7 @@ const startPortfolio = {
   total: {
     cad: 0,
     usd: 0,
+    fees: 0,
   },
   positions: {},
 };
@@ -57,6 +58,9 @@ function adjustPositions(transaction, portfolio) {
 }
 
 function updatePortfolio(transaction, contributions, portfolio) {
+  const { fee = 0 } = transaction;
+  const { fees = 0 } = portfolio;
+  const updatedFees = fees + fee;
   const cash = adjustCash(transaction, portfolio);
   const holdings = adjustHoldings(transaction, portfolio);
   const totals = calcTotals(cash, holdings, transaction.exchange);
@@ -68,6 +72,7 @@ function updatePortfolio(transaction, contributions, portfolio) {
     holdings,
     totals,
     positions,
+    fees: updatedFees,
   };
 }
 

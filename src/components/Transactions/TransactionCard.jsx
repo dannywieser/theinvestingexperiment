@@ -15,6 +15,7 @@ export const MoreDetails = ({ transaction, isDetailVisible }) => {
     results: {
       contributions,
       positions,
+      fees,
       cash: { cad: cashCAD, usd: cashUSD },
       totals: { cad: totalCAD, usd: totalUSD },
       holdings: { cad: holdingsCAD, usd: holdingsUSD },
@@ -30,6 +31,7 @@ export const MoreDetails = ({ transaction, isDetailVisible }) => {
       <TransactionCardRow label="holdings (USD)" value={holdingsUSD} type="dollars" />
       <TransactionCardRow label="cash + holdings (CAD)" value={totalCAD} type="dollars" />
       <TransactionCardRow label="cash + holdings (USD)" value={totalUSD} type="dollars" />
+      <TransactionCardRow label="fees" value={fees} type="dollars" />
       <div className="card-row-title positions">positions:</div>
       {Object.keys(positions).map(symbol => (
         <TransactionCardRow key={`${symbol}-position`} label={symbol} value={positions[symbol]} />
