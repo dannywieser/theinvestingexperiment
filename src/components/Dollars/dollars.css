@@ -1,0 +1,16 @@
+.dollars {
+  color: green;
+  width: 120px;
+}
+
+.dollars > .value {
+  float: right;
+}
+
+.symbol {
+  padding-right: 16px;
+}
+
+.dollars.negative {
+  color: red;
+}

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Dollars } from '../';
 import { Trades } from './Trades';
 
 export const DetailButton = ({ doToggle, isDetailVisible }) => {
@@ -41,16 +42,10 @@ export const MoreDetails = ({ transaction, isDetailVisible }) => {
 };
 
 export const TransactionCardRow = ({ label, value, type }) => {
-  let fmtValue = value;
-  let typeClasses = '';
-  if (type === 'dollars') {
-    typeClasses = value < 0 ? `${type} negative` : `${type}`;
-    fmtValue = `$${Math.abs(value)}`;
-  }
   return value === 0 || value === '' ? null : (
     <div className="card-row">
       <span className="card-row-title">{label}: </span>
-      <span className={typeClasses}>{fmtValue}</span>
+      {type === 'dollars' ? <Dollars value={value} /> : <span>{value}</span>}
     </div>
   );
 };

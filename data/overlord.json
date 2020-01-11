@@ -39,5 +39,6 @@
       "usd": 141.52
     },
     "note": "cash and holdings as of Jan 1, 2020"
-  }
+  },
+  { "date": "2020-01-10", "type": "contribute", "cash": { "cad": 150 } }
 ]

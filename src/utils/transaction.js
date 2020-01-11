@@ -96,8 +96,8 @@ function adjust(transaction, portfolio = startPortfolio) {
 }
 
 function calcTotals(cash, holdings, exchange) {
-  const cad = (cash.cad + cash.usd * exchange + holdings.cad + holdings.usd * exchange).toFixed(2);
-  const usd = (cash.cad / exchange + cash.usd + holdings.cad / exchange + holdings.usd).toFixed(2);
+  const cad = cash.cad + cash.usd * exchange + holdings.cad + holdings.usd * exchange;
+  const usd = cash.cad / exchange + cash.usd + holdings.cad / exchange + holdings.usd;
   return { cad, usd };
 }
 
