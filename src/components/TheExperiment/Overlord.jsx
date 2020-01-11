@@ -4,6 +4,11 @@ export const Overlord = () => (
   <div className="account">
     <ul>
       <li>
+        <strong>goal:</strong>to measure the risk vs reward of direct investment in equities. does
+        the risk involved actually lead to results that are better than a buy-and-hold fund-based
+        strategy?
+      </li>
+      <li>
         Choose 3-4{' '}
         <a target="_blank" href="https://www.investopedia.com/terms/b/bluechip.asp">
           Blue Chip

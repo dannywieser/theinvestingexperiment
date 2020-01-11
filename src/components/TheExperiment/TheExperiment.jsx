@@ -9,8 +9,8 @@ const TheExperimentBase = ({ location: { pathname } }) => {
   return (
     <div>
       <Intro />
-      <div className="accounts">
-        <h2>The Accounts</h2>
+      <div className="accounts card">
+        <h2>the accounts</h2>
         <Nav
           items={[
             { to: '/theexperiment/overlord', label: 'overlord' },

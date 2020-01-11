@@ -3,6 +3,10 @@ import React from 'react';
 export const Barbarossa = () => (
   <div className="account">
     <ul>
+      <li>
+        <strong>goal:</strong>how does steady investment in a mutual fund compare to direct equity
+        investments? Do the fees involved make a substantial impact to the return?
+      </li>
       <li>An employer provided group RRSP with matching contributions</li>
       <li>
         I will choose equity-focused mutual funds that diversify across Canadian, US, and Global
@@ -18,7 +22,7 @@ export const Barbarossa = () => (
         <a target="_blank" href="https://www.investopedia.com/terms/d/dollarcostaveraging.asp">
           Dollar-Cost Averaging
         </a>{' '}
-        to compensate for purchases during drops in the market
+        to compensate for purchases during drops in the market.
       </li>
     </ul>
   </div>

@@ -1,8 +1,11 @@
 import React from 'react';
 
 export const Intro = () => (
-  <div className="intro">
-    <span>
+  <div>
+    <div className="card intro">
+      <h2>
+        what is the<strong>investing</strong>experiment?
+      </h2>
       <p>
         Tired of conflicting advice about how to invest my money, and certain that with a bit of
         care and knowledge that I can do better, I’ve decided to run an experiment with 4 accounts
@@ -10,8 +13,9 @@ export const Intro = () => (
       </p>
       <p>It takes a long time to see proper outcomes, so I will run this experiment from</p>
       <p className="dates">January 1, 2020 &mdash; January 1, 2025</p>
-      <p></p>
-      <h2>Practices and Guidelines</h2>
+    </div>
+    <div className="card">
+      <h2>practices and guidelines</h2>
       <ul>
         <li>
           I will log all transactions that take place across the different accounts in order to
@@ -31,6 +35,6 @@ export const Intro = () => (
           contributions on a bi-weekly basis.
         </li>
       </ul>
-    </span>
+    </div>
   </div>
 );
