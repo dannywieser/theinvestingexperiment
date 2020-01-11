@@ -16,6 +16,7 @@ const startPortfolio = {
     cad: 0,
     usd: 0,
   },
+  positions: {},
 };
 
 const buildMeta = ({ date, type, fee = 0, note, exchange }) => ({
@@ -45,16 +46,28 @@ function adjustHoldings(transaction, portfolio) {
   };
 }
 
+function adjustPositions(transaction, portfolio) {
+  const { positions = {} } = portfolio;
+  const { trades = [] } = transaction;
+  return trades.reduce((newPositions, { symbol, units }) => {
+    const existing = positions[symbol] ? positions[symbol] : { units: 0 };
+    const newUnits = existing.units + units;
+    return { ...newPositions, [symbol]: newUnits };
+  }, positions);
+}
+
 function updatePortfolio(transaction, contributions, portfolio) {
   const cash = adjustCash(transaction, portfolio);
   const holdings = adjustHoldings(transaction, portfolio);
   const totals = calcTotals(cash, holdings, transaction.exchange);
+  const positions = adjustPositions(transaction, portfolio);
   return {
     ...portfolio,
     contributions,
     cash,
     holdings,
     totals,
+    positions,
   };
 }
 
@@ -69,11 +82,11 @@ function updateContributions(transaction, portfolio) {
 }
 
 function adjust(transaction, portfolio = startPortfolio) {
-  const { cash, holdings } = transaction;
+  const { cash, holdings, trades } = transaction;
   const contributions = updateContributions(transaction, portfolio);
   const results = updatePortfolio(transaction, contributions, portfolio);
   const meta = buildMeta(transaction);
-  return { meta, cash, holdings, results };
+  return { meta, cash, holdings, trades, results };
 }
 
 function calcTotals(cash, holdings, exchange) {
