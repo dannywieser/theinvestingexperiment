@@ -18,8 +18,7 @@ export const Overlord = () => (
           stop order
         </a>{' '}
         on each holding that I will adjust in order to lose no more than <strong>8%</strong> off the
-        highest value of the stock while I have a position in it. This type of drop is the only
-        reason I will move out of a position.
+        highest value of the stock while I have a position in it.
       </li>
       <li>
         I will monitor the target stocks regularly and will be ready to move out of a position only

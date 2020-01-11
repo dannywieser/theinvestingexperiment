@@ -18,8 +18,8 @@ const TheExperimentBase = ({ location: { pathname } }) => {
           <p>It takes a long time to see proper outcomes, so I will run this experiment from</p>
           <p className="dates">January 1, 2020 &mdash; January 1, 2025</p>
           <p>
-            The consistency across all accounts will be consistent contributions of new cash on a
-            regular basis.
+            The consistency across all accounts will be automatic scheduled contributions of new
+            cash.
           </p>
           <p>The codenames and guidelines for each account are documented below</p>
         </span>
