@@ -7,7 +7,6 @@ const DEFAULT_STATE = {
 export function loadTransactions(account) {
   return async dispatch => {
     const dataUrl = `/data/${account}.json`;
-    console.log('load', dataUrl);
     const response = await fetch(dataUrl);
     const transactions = await response.json();
     const withExchange = await loadTransactionExchange(transactions);
@@ -15,6 +14,8 @@ export function loadTransactions(account) {
     dispatch({ account, payload, type: 'LOAD_TRANSACTIONS.complete' });
   };
 }
+
+// TODO: selector for account
 
 export function transaction(state = DEFAULT_STATE, action) {
   switch (action.type) {

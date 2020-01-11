@@ -1,24 +1,27 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
+import { Nav } from '../';
+import { accounts } from '../../accounts';
+import { TransactionDetail } from './TransactionDetail';
 import './transactions.css';
 
-import { Nav } from '../';
-import { TransactionDetail } from './TransactionDetail';
+export const transactionPath = '/transactions';
 
-export const Transactions = () => {
+export const Transactions = ({ location: { pathname } }) => {
+  const overrideActive =
+    pathname === transactionPath ? `${transactionPath}/${accounts.defaultAccount}` : '';
+
+  const accountNav = accounts.list.map(account => ({
+    to: `${transactionPath}/${account}`,
+    label: account,
+  }));
   return (
     <div>
       <div className="transaction-accounts">
-        <Nav
-          items={[
-            { to: '/transactions/overlord', label: 'overlord' },
-            { to: '/transactions/barbarossa', label: 'barbarossa' },
-            { to: '/transactions/dynamo', label: 'dynamo' },
-            { to: '/transactions/manhattan', label: 'manhattan' },
-          ]}
-        />
+        <Nav items={accountNav} overrideActive={overrideActive} />
         <Switch>
-          <Route path="/transactions/:account" component={TransactionDetail} />
+          <Route exact path={transactionPath} component={TransactionDetail} />
+          <Route path={`${transactionPath}/:account`} component={TransactionDetail} />
         </Switch>
       </div>
     </div>

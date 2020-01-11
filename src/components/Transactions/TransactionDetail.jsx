@@ -29,7 +29,6 @@ export class TransactionDetailBase extends React.Component {
     const { loadTransactions } = this.props;
     const account = getAccount(this.props);
     const accountTransactions = transactionsForAccount(account, this.props);
-    console.log(accountTransactions);
     if (account !== getAccount(prevProps) && accountTransactions.length === 0) {
       loadTransactions(getAccount(this.props));
     }
