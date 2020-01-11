@@ -5,7 +5,7 @@ import { Header, Nav, TheExperiment, Results, Transactions, Blog } from './compo
 
 const App = () => (
   <div className="App">
-    <Router basename="/theexperiment">
+    <Router>
       <Route
         path="/"
         render={({ location }) => {
@@ -17,9 +17,10 @@ const App = () => (
         }}
       />
       <Header />
-      <Nav items={[{ to: '/', label: 'theexperiment' }]} />
+      <Nav items={[{ to: '/theexperiment', label: 'theexperiment' }]} />
       <Switch>
-        <Route path="/" component={TheExperiment} />
+        <Redirect exact from="/" to="/theexperiment" />
+        <Route path="/theexperiment" component={TheExperiment} />
         <Route path="/transactions" component={Transactions} />
         <Route path="/results" component={Results} />
         <Route path="/blog" component={Blog} />
