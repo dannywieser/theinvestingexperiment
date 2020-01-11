@@ -6,3 +6,4 @@ export * from './Transactions';
 export * from './Results';
 export * from './Blog';
 export * from './MyResponsiveLine';
+export * from './Footer';
