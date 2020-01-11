@@ -4,21 +4,27 @@ const DEFAULT_STATE = {
   transactions: [],
 };
 
-export function loadTransactions(data) {
+export function loadTransactions(account) {
   return async dispatch => {
-    const response = await fetch(data);
+    const dataUrl = `/data/${account}.json`;
+    console.log('load', dataUrl);
+    const response = await fetch(dataUrl);
     const transactions = await response.json();
     const withExchange = await loadTransactionExchange(transactions);
     const payload = processTransactions(withExchange);
-    dispatch({ payload, type: 'LOAD_TRANSACTIONS.complete' });
+    dispatch({ account, payload, type: 'LOAD_TRANSACTIONS.complete' });
   };
 }
 
 export function transaction(state = DEFAULT_STATE, action) {
   switch (action.type) {
     case 'LOAD_TRANSACTIONS.complete':
+      const { transactions } = state;
       return {
-        transactions: action.payload,
+        transactions: {
+          ...transactions,
+          [action.account]: action.payload,
+        },
       };
     default:
       return state;
