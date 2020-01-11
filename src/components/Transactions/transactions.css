@@ -19,6 +19,11 @@
   color: #4682b4;
 }
 
+.card-row {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
 .card-row .dollars {
   color: green;
 }

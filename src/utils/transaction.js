@@ -1,5 +1,7 @@
 const uuidv4 = require('uuid/v4');
 
+import { loadExchange } from './loader';
+
 const startPortfolio = {
   contributions: 0,
   cash: {
@@ -16,9 +18,14 @@ const startPortfolio = {
   },
 };
 
-function buildMeta({ date, type, fee = 0, note }) {
-  return { date, type, fee, note, uuid: uuidv4() };
-}
+const buildMeta = ({ date, type, fee = 0, note, exchange }) => ({
+  date,
+  type,
+  fee,
+  note,
+  uuid: uuidv4(),
+  exchange,
+});
 
 function adjustCash(transaction, portfolio) {
   const { cash = {} } = transaction;
@@ -39,11 +46,10 @@ function adjustHoldings(transaction, portfolio) {
 }
 
 function updatePortfolio(transaction, contributions, portfolio) {
-  const cash = adjustCash(transaction, portfolio),
-  const holdings = adjustHoldings(transaction, portfolio),
-  const totals = calcTotals(portfolio),
-  const contributions =
-  portfolio = {
+  const cash = adjustCash(transaction, portfolio);
+  const holdings = adjustHoldings(transaction, portfolio);
+  const totals = calcTotals(cash, holdings, transaction.exchange);
+  return {
     ...portfolio,
     contributions,
     cash,
@@ -52,61 +58,29 @@ function updatePortfolio(transaction, contributions, portfolio) {
   };
 }
 
-function contribute(transaction, portfolio = startPortfolio) {
-  const { cash, holdings } = transaction;
-  const contributions = portfolio.contributions + transaction.cash['cad'];
-  const results = updatePortfolio(transaction, contributions, portfolioIn);
-  return  { meta: buildMeta(transaction), cash, holdings, results }
-}
-
-function start(transaction, portfolio = startPortfolio) {
-  const { cash, holdings } = transaction;
-  const results = updatePortfolio(transaction, transaction.contributions, portfolio);
-  const meta = buildMeta(transaction);
-  return { meta, cash, holdings, results };
-}
-
-function buy(transaction, portfolio = startPortfolio) {
-  const { cash, holdings } = transaction;
-  const results = updatePortfolio(transaction, portfolio.contributions, portfolio);
-  const meta = buildMeta(transaction);
-  return { meta, cash, holdings, results };
+function updateContributions(transaction, portfolio) {
+  const { type, cash, contributions = 0 } = transaction;
+  if (type === 'contribute') {
+    return portfolio.contributions + cash['cad'];
+  }
+  if (type === 'start' && contributions > 0) {
+    return contributions;
+  }
 }
 
 function adjust(transaction, portfolio = startPortfolio) {
-  const { cash } = transaction;
-  const portfolio = updatePortfolio(transaction, portfolio.contributions, portfolio);
+  const { cash, holdings } = transaction;
+  const contributions = updateContributions(transaction, portfolio);
+  const results = updatePortfolio(transaction, contributions, portfolio);
   const meta = buildMeta(transaction);
-  return { meta: buildMeta(transaction), cash, holdings, results: portfolio };
-}
-const conversion = adjust;
-const dividend = adjust;
-
-async function loadExchange(date) {
-  const response = await fetch(`https://api.exchangeratesapi.io/${date}?symbols=CAD&base=USD`);
-  const json = await response.json();
-  const {
-    rates: { CAD },
-  } = json;
-  console.log('return exchange');
-  return CAD;
+  return { meta, cash, holdings, results };
 }
 
-function calcTotals(portfolio) {
-  const { exchange, cash = {} } = transaction;
-  const { cash, holdings };
-  const cad = cash.cad + (cash.usd * exchange) + holdings.cad + (holdings.usd * exchange);
-  const usd = (cash.cad / exchange) + cash.usd + (holdings.cad / exchange) + holdings.usd;
+function calcTotals(cash, holdings, exchange) {
+  const cad = (cash.cad + cash.usd * exchange + holdings.cad + holdings.usd * exchange).toFixed(2);
+  const usd = (cash.cad / exchange + cash.usd + holdings.cad / exchange + holdings.usd).toFixed(2);
   return { cad, usd };
 }
-
-const handlerMap = {
-  buy,
-  contribute,
-  conversion,
-  dividend,
-  start,
-};
 
 export function loadTransactionExchange(transactions) {
   return Promise.all(
@@ -120,8 +94,8 @@ export function loadTransactionExchange(transactions) {
 export function processTransactions(transactions) {
   let state;
   return transactions.map(toprocess => {
-    const { portfolio, transaction } = handlerMap[toprocess.type](toprocess, state);
-    state = { ...portfolio };
+    const transaction = adjust(toprocess, state);
+    state = { ...transaction.result };
     return transaction;
   });
 }

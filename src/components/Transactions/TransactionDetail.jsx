@@ -19,7 +19,6 @@ export class TransactionDetailBase extends React.Component {
 
   render() {
     const { transactions } = this.props;
-    console.log(transactions);
     return (
       <div className="transactions">
         {transactions.map(transaction => (

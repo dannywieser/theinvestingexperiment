@@ -11,12 +11,22 @@ export const DetailButton = ({ doToggle, isDetailVisible }) => {
 
 export const MoreDetails = ({ transaction, isDetailVisible }) => {
   const {
-    meta: { date, type },
+    results: {
+      contributions,
+      cash: { cad: cashCAD, usd: cashUSD },
+      totals: { cad: totalCAD, usd: totalUSD },
+      holdings: { cad: holdingsCAD, usd: holdingsUSD },
+    },
   } = transaction;
   return isDetailVisible ? (
     <div className="more-detail">
-      <TransactionCardRow label="total CAD" value={date} />
-      <TransactionCardRow label="total USD" value={type} />
+      <TransactionCardRow label="total contributions (CAD)" value={contributions} type="dollars" />
+      <TransactionCardRow label="total cash (CAD)" value={cashCAD} type="dollars" />
+      <TransactionCardRow label="total cash (USD)" value={cashUSD} type="dollars" />
+      <TransactionCardRow label="total holdings (CAD)" value={holdingsCAD} type="dollars" />
+      <TransactionCardRow label="total holdings (USD)" value={holdingsUSD} type="dollars" />
+      <TransactionCardRow label="book value (CAD)" value={totalCAD} type="dollars" />
+      <TransactionCardRow label="book value (USD)" value={totalUSD} type="dollars" />
     </div>
   ) : null;
 };
