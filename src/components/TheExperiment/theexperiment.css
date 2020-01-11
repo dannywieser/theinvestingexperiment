@@ -17,3 +17,8 @@
 .account li {
   padding: 8px;
 }
+
+.accounts h2 {
+  color: black;
+  text-align: center;
+}

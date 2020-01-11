@@ -9,7 +9,7 @@ export const Overlord = () => (
           Blue Chip
         </a>
         , preferably dividend-paying stocks and that I have strong understanding of; that I will{' '}
-        <strong> buy and hold</strong>
+        <strong>buy and hold</strong>
         <i> approximately</i> equal positions in.
       </li>
       <li>
