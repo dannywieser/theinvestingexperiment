@@ -8,6 +8,10 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
   },
+  output: {
+    filename: 'main.js',
+    path: __dirname + '/build',
+  },
   module: {
     rules: [
       {
