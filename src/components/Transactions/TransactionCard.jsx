@@ -23,13 +23,13 @@ export const MoreDetails = ({ transaction, isDetailVisible }) => {
   return isDetailVisible ? (
     <div className="more-detail">
       <span>Portfolio totals as of this transaction are:</span>
-      <TransactionCardRow label="total contributions (CAD)" value={contributions} type="dollars" />
-      <TransactionCardRow label="total cash (CAD)" value={cashCAD} type="dollars" />
-      <TransactionCardRow label="total cash (USD)" value={cashUSD} type="dollars" />
-      <TransactionCardRow label="total holdings (CAD)" value={holdingsCAD} type="dollars" />
-      <TransactionCardRow label="total holdings (USD)" value={holdingsUSD} type="dollars" />
-      <TransactionCardRow label="book value (CAD)" value={totalCAD} type="dollars" />
-      <TransactionCardRow label="book value (USD)" value={totalUSD} type="dollars" />
+      <TransactionCardRow label="contributions (CAD)" value={contributions} type="dollars" />
+      <TransactionCardRow label="cash (CAD)" value={cashCAD} type="dollars" />
+      <TransactionCardRow label="cash (USD)" value={cashUSD} type="dollars" />
+      <TransactionCardRow label="holdings (CAD)" value={holdingsCAD} type="dollars" />
+      <TransactionCardRow label="holdings (USD)" value={holdingsUSD} type="dollars" />
+      <TransactionCardRow label="cash + holdings (CAD)" value={totalCAD} type="dollars" />
+      <TransactionCardRow label="cash + holdings (USD)" value={totalUSD} type="dollars" />
       <div className="card-row-title positions">positions:</div>
       {Object.keys(positions).map(symbol => (
         <TransactionCardRow key={`${symbol}-position`} label={symbol} value={positions[symbol]} />
@@ -64,7 +64,6 @@ export const TransactionCard = ({ transaction }) => {
   } = transaction;
   const { usd: cashusd = 0, cad: cashcad = 0 } = cash;
   const { usd: holdingsusd = 0, cad: holdingscad = 0 } = holdings;
-  console.log(transaction);
   return (
     <div className="transaction-card">
       <TransactionCardRow label="date" value={date} />
@@ -75,7 +74,7 @@ export const TransactionCard = ({ transaction }) => {
       <TransactionCardRow label="holdings adjust (USD)" value={holdingsusd} type="dollars" />
       <TransactionCardRow label="fee" value={fee} type="dollars" />
       <TransactionCardRow label="notes" value={note} />
-      <Trades trades={trades} />
+      {trades.length ? <Trades trades={trades} /> : null}
       <MoreDetails transaction={transaction} isDetailVisible={isDetailVisible} />
       <DetailButton isDetailVisible={isDetailVisible} doToggle={toggle} />
     </div>

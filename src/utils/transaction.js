@@ -50,8 +50,8 @@ function adjustPositions(transaction, portfolio) {
   const { positions = {} } = portfolio;
   const { trades = [] } = transaction;
   return trades.reduce((newPositions, { symbol, units }) => {
-    const existing = positions[symbol] ? positions[symbol] : { units: 0 };
-    const newUnits = existing.units + units;
+    const existing = positions[symbol] ? positions[symbol] : 0;
+    const newUnits = existing + units;
     return { ...newPositions, [symbol]: newUnits };
   }, positions);
 }
@@ -79,6 +79,7 @@ function updateContributions(transaction, portfolio) {
   if (type === 'start' && contributions > 0) {
     return contributions;
   }
+  return portfolio.contributions;
 }
 
 function adjust(transaction, portfolio = startPortfolio) {
@@ -108,7 +109,7 @@ export function processTransactions(transactions) {
   let state;
   return transactions.map(toprocess => {
     const transaction = adjust(toprocess, state);
-    state = { ...transaction.result };
+    state = { ...transaction.results };
     return transaction;
   });
 }
