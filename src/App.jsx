@@ -23,8 +23,11 @@ const App = () => (
         />
         <Header />
         <Nav
+          contact={true}
           items={[
             { to: '/theexperiment', label: 'theexperiment' },
+            { to: '/blog', label: 'blog' },
+            { to: '/results', label: 'results' },
             { to: '/transactions', label: 'transactions' },
           ]}
         />

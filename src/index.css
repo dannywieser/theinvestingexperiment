@@ -16,3 +16,7 @@ strong {
   color: #4682b4;
   font-weight: 900;
 }
+
+a:visited {
+  color: #4682b4;
+}

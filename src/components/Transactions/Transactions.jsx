@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import { Nav } from '../';
+import { Nav, Footer } from '../';
 import { accounts } from '../../accounts';
 import { TransactionDetail } from './TransactionDetail';
 import './transactions.css';

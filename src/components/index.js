@@ -1,4 +1,3 @@
-export * from './Content';
 export * from './Card';
 export * from './Dollars';
 export * from './Header';

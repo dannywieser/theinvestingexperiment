@@ -29,12 +29,18 @@
 }
 
 .more-link {
+  height: 24px;
+  width: 24px;
   position: absolute;
   right: 8px;
-  bottom: 8px;
+  bottom: 12px;
   cursor: pointer;
   color: #4682b4;
   text-decoration: underline;
+}
+
+.more-link:hover {
+  background-color: white;
 }
 
 .more-detail {

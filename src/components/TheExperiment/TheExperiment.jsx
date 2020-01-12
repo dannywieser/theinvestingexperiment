@@ -29,7 +29,6 @@ const TheExperimentBase = ({ location: { pathname } }) => {
           <Route path="/theexperiment/manhattan" component={Manhattan} />
         </Switch>
       </div>
-      <Footer />
     </div>
   );
 };

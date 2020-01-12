@@ -13,8 +13,9 @@ export const NavItem = ({ to, label, active, width }) => {
   );
 };
 
-export const NavBase = ({ items, overrideActive, location: { pathname } }) => {
-  const width = `${100 / items.length}%`;
+export const NavBase = ({ items, overrideActive, location: { pathname }, contact = false }) => {
+  const numItems = contact ? items.length + 1 : items.length;
+  const width = `${100 / numItems}%`;
   const active = overrideActive ? overrideActive : pathname;
   return (
     <nav className="topnav">
@@ -22,6 +23,13 @@ export const NavBase = ({ items, overrideActive, location: { pathname } }) => {
         {items.map(({ to, label }) => (
           <NavItem key={label} to={to} label={label} active={active} width={width} />
         ))}
+        {contact ? (
+          <li style={{ width: width }}>
+            <a href="mailto:theinvestingexperiment@gmail.com" target="_blank">
+              contact
+            </a>
+          </li>
+        ) : null}
       </ul>
     </nav>
   );

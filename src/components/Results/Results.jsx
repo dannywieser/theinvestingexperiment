@@ -1,8 +1,12 @@
 import React from 'react';
+
+import { Card, Footer } from '../';
 import './results.css';
 
 export const Results = () => (
   <div>
-    <span>results</span>
+    <Card>
+      <span>I will post the one-month results at the end of January.</span>
+    </Card>
   </div>
 );
