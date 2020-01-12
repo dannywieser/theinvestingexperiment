@@ -13,7 +13,7 @@ const TradeRow = ({ trade: { symbol, units, price } }) => {
 export const Trades = ({ trades }) => {
   return (
     <div className="trades">
-      <div className="card-row-title is-centered">trades</div>
+      <div className="is-centered primary bottom-margin">trades</div>
       {trades.map(trade => (
         <TradeRow key={trade.symbol} trade={trade} />
       ))}

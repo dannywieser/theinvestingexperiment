@@ -59,7 +59,7 @@
   grid-template-columns: 15% 80% 5%;
 }
 
-.full-detail {
+.transaction-section {
   background-color: white;
   border: 1px dashed #4682b4;
   margin-top: 8px;
@@ -69,4 +69,12 @@
 
 .value {
   text-align: right;
+}
+
+.primary {
+  color: #4682b4;
+}
+
+.bottom-margin {
+  margin-bottom: 8px;
 }

@@ -38,18 +38,36 @@
     }
   },
   {
-    "date": "2020-01-02",
+    "date": "2020-01-03",
     "type": "buy",
     "cash": {
-      "cad": -229.47
+      "cad": -75.7198
     },
     "holdings": {
-      "cad": 229.47
+      "cad": 75.7198
     },
-    "trades": [
-      { "symbol": "BGUS", "units": 2.01447, "price": 37.588 },
-      { "symbol": "BGCDN", "units": 0.88923, "price": 87.7394 },
-      { "symbol": "MFS", "units": 2.01078, "price": 37.6621 }
-    ]
+    "trades": [{ "symbol": "BGUS", "units": 2.01447, "price": 37.588 }]
+  },
+  {
+    "date": "2020-01-03",
+    "type": "buy",
+    "cash": {
+      "cad": -78.0205
+    },
+    "holdings": {
+      "cad": 78.0205
+    },
+    "trades": [{ "symbol": "BGCDN", "units": 0.88923, "price": 87.7394 }]
+  },
+  {
+    "date": "2020-01-03",
+    "type": "buy",
+    "cash": {
+      "cad": -75.7302
+    },
+    "holdings": {
+      "cad": 75.7302
+    },
+    "trades": [{ "symbol": "MFS", "units": 2.01078, "price": 37.6621 }]
   }
 ]
