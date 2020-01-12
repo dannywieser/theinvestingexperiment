@@ -1,4 +1,5 @@
 const uuidv4 = require('uuid/v4');
+const moment = require('moment');
 
 import { loadExchange } from './loader';
 
@@ -21,7 +22,7 @@ const startPortfolio = {
 };
 
 const buildMeta = ({ date, type, fee = 0, note, exchange }) => ({
-  date,
+  date: moment(date),
   type,
   fee,
   note,
@@ -112,9 +113,13 @@ export function loadTransactionExchange(transactions) {
 
 export function processTransactions(transactions) {
   let state;
-  return transactions.map(toprocess => {
+  const processed = transactions.map(toprocess => {
     const transaction = adjust(toprocess, state);
     state = { ...transaction.results };
     return transaction;
   });
+  processed.sort(
+    ({ meta: { date: dateA } }, { meta: { date: dateB } }) => dateB.valueOf() - dateA.valueOf(),
+  );
+  return processed;
 }

@@ -3,8 +3,6 @@
 }
 
 .transactions {
-  padding: 16px;
-  display: grid;
   font-size: small;
 }
 
@@ -23,6 +21,11 @@
 .card-row {
   display: grid;
   grid-template-columns: 50% 50%;
+  padding: 2px;
+}
+
+.is-centered {
+  text-align: center;
 }
 
 .more-link {
@@ -40,4 +43,30 @@
 
 .positions {
   margin-top: 8px;
+}
+
+.tiny-transaction {
+  display: grid;
+  grid-template-columns: 15% 20% 30% 30% 5%;
+}
+
+.transaction-date {
+  color: black;
+}
+
+.summary {
+  display: grid;
+  grid-template-columns: 15% 80% 5%;
+}
+
+.full-detail {
+  background-color: white;
+  border: 1px dashed #4682b4;
+  margin-top: 8px;
+  margin-right: 32px;
+  padding: 8px;
+}
+
+.value {
+  text-align: right;
 }
