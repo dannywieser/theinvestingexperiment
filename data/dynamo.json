@@ -1,0 +1,46 @@
+[
+  {
+    "date": "2020-01-01",
+    "type": "start",
+    "contributions": 2691.75,
+    "cash": {
+      "cad": 319.2
+    },
+    "holdings": {
+      "cad": 2241.78
+    },
+    "trades": [
+      {
+        "symbol": "VEQ.TO",
+        "units": 81,
+        "price": 28.5
+      }
+    ]
+  },
+  {
+    "date": "2020-01-03",
+    "type": "buy",
+    "cash": {
+      "cad": -283.94
+    },
+    "fee": 0.04,
+    "holdings": {
+      "cad": 283.9
+    },
+    "trades": [
+      {
+        "symbol": "VEQ.TO",
+        "units": 10,
+        "price": 28.39
+      }
+    ]
+  },
+  {
+    "date": "2020-01-03",
+    "type": "dividend",
+    "cash": {
+      "cad": 32.7
+    }
+  },
+  { "date": "2020-01-10", "type": "contribute", "cash": { "cad": 150 } }
+]

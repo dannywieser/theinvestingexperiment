@@ -1,0 +1,73 @@
+[
+  {
+    "date": "2020-01-01",
+    "type": "start",
+    "contributions": 154708.94,
+    "holdings": {
+      "cad": 154708.94
+    },
+    "trades": [
+      { "symbol": "BGUS", "units": 1357.19511, "price": 37.59 },
+      { "symbol": "BGCDN", "units": 601.53359, "price": 87.74 },
+      { "symbol": "MFS", "units": 1372.74488, "price": 37.66 }
+    ],
+    "cash": {
+      "cad": 0,
+      "usd": 0
+    },
+    "note": "cash and holdings as of Jan 1, 2020"
+  },
+  {
+    "date": "2020-01-02",
+    "type": "fee",
+    "holdings": {
+      "cad": -48.29
+    },
+    "trades": [
+      { "symbol": "BGUS", "units": -0.41371, "price": 37.588 },
+      { "symbol": "BGCDN", "units": -0.18384, "price": 87.7394 },
+      { "symbol": "MFS", "units": -0.71558, "price": 37.6621 }
+    ],
+    "fee": -48.29
+  },
+  {
+    "date": "2020-01-02",
+    "type": "contribute",
+    "cash": {
+      "cad": 229.47
+    }
+  },
+  {
+    "date": "2020-01-03",
+    "type": "buy",
+    "cash": {
+      "cad": -75.7198
+    },
+    "holdings": {
+      "cad": 75.7198
+    },
+    "trades": [{ "symbol": "BGUS", "units": 2.01447, "price": 37.588 }]
+  },
+  {
+    "date": "2020-01-03",
+    "type": "buy",
+    "cash": {
+      "cad": -78.0205
+    },
+    "holdings": {
+      "cad": 78.0205
+    },
+    "trades": [{ "symbol": "BGCDN", "units": 0.88923, "price": 87.7394 }]
+  },
+  {
+    "date": "2020-01-03",
+    "type": "buy",
+    "cash": {
+      "cad": -75.7302
+    },
+    "holdings": {
+      "cad": 75.7302
+    },
+    "trades": [{ "symbol": "MFS", "units": 2.01078, "price": 37.6621 }]
+  }
+]

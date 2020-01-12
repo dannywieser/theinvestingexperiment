@@ -1,0 +1,80 @@
+.transaction-accounts {
+  padding-top: 16px;
+}
+
+.transactions {
+  font-size: small;
+}
+
+.transaction-card {
+  box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.02);
+  margin-bottom: px;
+  padding: 16px;
+  position: relative;
+}
+
+.card-row-title {
+  font-weight: bolder;
+  color: #4682b4;
+}
+
+.card-row {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  padding: 2px;
+}
+
+.is-centered {
+  text-align: center;
+}
+
+.more-link {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  cursor: pointer;
+  color: #4682b4;
+  text-decoration: underline;
+}
+
+.more-detail {
+  margin-top: 16px;
+}
+
+.positions {
+  margin-top: 8px;
+}
+
+.tiny-transaction {
+  display: grid;
+  grid-template-columns: 15% 20% 30% 30% 5%;
+}
+
+.transaction-date {
+  color: black;
+}
+
+.summary {
+  display: grid;
+  grid-template-columns: 15% 80% 5%;
+}
+
+.transaction-section {
+  background-color: white;
+  border: 1px dashed #4682b4;
+  margin-top: 8px;
+  margin-right: 32px;
+  padding: 8px;
+}
+
+.value {
+  text-align: right;
+}
+
+.primary {
+  color: #4682b4;
+}
+
+.bottom-margin {
+  margin-bottom: 8px;
+}

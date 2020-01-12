@@ -1,0 +1,44 @@
+[
+  {
+    "date": "2020-01-01",
+    "type": "start",
+    "contributions": 60325.87,
+    "holdings": {
+      "usd": 53034.88
+    },
+    "trades": [
+      { "symbol": "AAPL", "units": 60, "price": 271.48 },
+      {
+        "symbol": "MSFT",
+        "units": 40,
+        "price": 153.19
+      },
+      {
+        "symbol": "AMZN",
+        "units": 3,
+        "price": 1765.65
+      },
+      {
+        "symbol": "DIS",
+        "units": 39,
+        "price": 147.7
+      },
+      {
+        "symbol": "GOOG",
+        "units": 7,
+        "price": 1347.7071
+      },
+      {
+        "symbol": "MCD",
+        "units": 52,
+        "price": 194.57
+      }
+    ],
+    "cash": {
+      "cad": 300,
+      "usd": 141.52
+    },
+    "note": "cash and holdings as of Jan 1, 2020"
+  },
+  { "date": "2020-01-10", "type": "contribute", "cash": { "cad": 150 } }
+]
