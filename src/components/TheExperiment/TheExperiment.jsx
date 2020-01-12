@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter, Switch, Route, Redirect } from 'react-router-dom';
 import './theexperiment.css';
-import { Nav } from '../';
+import { Nav, Footer } from '../';
 import { Overlord, Barbarossa, Dynamo, Manhattan, Intro } from './';
 
 const TheExperimentBase = ({ location: { pathname } }) => {
@@ -29,6 +29,7 @@ const TheExperimentBase = ({ location: { pathname } }) => {
           <Route path="/theexperiment/manhattan" component={Manhattan} />
         </Switch>
       </div>
+      <Footer />
     </div>
   );
 };

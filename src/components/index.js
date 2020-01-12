@@ -8,3 +8,4 @@ export * from './Transactions';
 export * from './Results';
 export * from './Blog';
 export * from './Charts/MyResponsiveLine';
+export * from './Footer';
