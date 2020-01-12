@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import { Nav, Footer } from '../';
-import { accounts } from '../../accounts';
+import { Nav } from '../Nav';
+import accounts from '../../accounts';
 import { TransactionDetail } from './TransactionDetail';
 import './transactions.css';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Card, Footer } from '../';
+import { Card } from '../Card';
 import './results.css';
 
 export const Results = () => (

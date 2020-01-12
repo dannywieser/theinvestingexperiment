@@ -22,10 +22,16 @@
     "uuid": "^3.3.3"
   },
   "scripts": {
-    "build": "webpack --mode production && copyfiles favicon.png build && copyfiles data/*.json build",
+    "build": "yarn lint && webpack --mode production && copyfiles favicon.png build && copyfiles data/*.json build",
     "dev": "webpack-dev-server --open --mode development",
     "start": "node start.js",
     "lint": "eslint ."
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "yarn lint --fix",
+      "git add"
+    ]
   },
   "devDependencies": {
     "@babel/core": "^7.7.4",
@@ -42,6 +48,8 @@
     "eslint-plugin-react": "^7.17.0",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
+    "lint-staged": "^9.5.0",
+    "pre-commit": "^1.2.2",
     "prettier": "^1.19.1",
     "style-loader": "^1.0.1",
     "webpack": "^4.41.2",

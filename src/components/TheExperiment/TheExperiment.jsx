@@ -1,8 +1,12 @@
 import React from 'react';
-import { withRouter, Switch, Route, Redirect } from 'react-router-dom';
+import { withRouter, Switch, Route } from 'react-router-dom';
+import { Nav } from '../Nav';
+import { Overlord } from './Overlord';
+import { Barbarossa } from './Barbarossa';
+import { Dynamo } from './Dynamo';
+import { Manhattan } from './Manhattan';
+import { Intro } from './Intro';
 import './theexperiment.css';
-import { Nav, Footer } from '../';
-import { Overlord, Barbarossa, Dynamo, Manhattan, Intro } from './';
 
 const TheExperimentBase = ({ location: { pathname } }) => {
   const overrideActive = pathname === '/theexperiment' ? '/theexperiment/overlord' : '';

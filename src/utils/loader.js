@@ -6,3 +6,7 @@ export async function loadExchange(date) {
   } = json;
   return CAD;
 }
+
+export function anotherUtil() {
+  return null;
+}

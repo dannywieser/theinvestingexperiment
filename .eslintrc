@@ -1,8 +1,16 @@
 {
-    "extends": ["airbnb"],
-    "plugins": ["prettier"],
-    "rules": {
-        "prettier/prettier": "error"
-    },
-    "ignorePatterns": ["dist"]
+  "extends": ["airbnb"],
+  "plugins": ["prettier"],
+  "rules": {
+    "prettier/prettier": "error",
+    "arrow-parens": 0,
+    "no-case-declarations": 0,
+    "object-curly-newline": 0,
+    "react/prop-types": 0,
+    "import/prefer-default-export": 0
+  },
+  "ignorePatterns": ["build"],
+  "env": {
+    "browser": true
+  }
 }

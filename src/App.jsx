@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-d
 import { Header, Nav, TheExperiment, Results, Transactions, Blog } from './components';
 
 import './index.css';
-import { store } from './state/store';
+import store from './state/store';
 
 const App = () => (
   <Provider store={store}>
@@ -23,7 +23,7 @@ const App = () => (
         />
         <Header />
         <Nav
-          contact={true}
+          contact
           items={[
             { to: '/theexperiment', label: 'theexperiment' },
             { to: '/blog', label: 'blog' },

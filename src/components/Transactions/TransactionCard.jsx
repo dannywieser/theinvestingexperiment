@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
-import { Dollars, Card } from '../';
+import { Card } from '../Card';
+import { Dollars } from '../Dollars';
 import { Trades } from './Trades';
 import { TransactionSummary } from './TransactionSummary';
 

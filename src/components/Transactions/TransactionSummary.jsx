@@ -2,7 +2,7 @@ import React from 'react';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 
-import { Dollars } from '../';
+import { Dollars } from '../Dollars';
 
 export const StartSummary = ({ transaction }) => {
   const {
@@ -24,7 +24,6 @@ export const BuySummary = ({ transaction }) => {
     trades,
   } = transaction;
   const label = holdingsCAD > 0 ? 'holdings change(CAD)' : 'holdings change(USD)';
-  console.log(trades);
   const tradesSummary = trades.reduce(
     (summary, { symbol, units }) =>
       summary === '' ? `${symbol}(${units})` : `${summary}, ${symbol}(${units})`,
@@ -72,7 +71,6 @@ export const FeeSummary = ({ transaction }) => {
     meta: { fee },
   } = transaction;
   const label = fee > 0 ? 'amount(CAD)' : 'amount(USD)';
-  console.log(fee);
   return (
     <div>
       <strong>{`fee|${label}`}</strong>

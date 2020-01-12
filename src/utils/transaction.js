@@ -1,7 +1,7 @@
+import { loadExchange } from './loader';
+
 const uuidv4 = require('uuid/v4');
 const moment = require('moment');
-
-import { loadExchange } from './loader';
 
 const startPortfolio = {
   contributions: 0,
@@ -58,6 +58,12 @@ function adjustPositions(transaction, portfolio) {
   }, positions);
 }
 
+function calcTotals(cash, holdings, exchange) {
+  const cad = cash.cad + cash.usd * exchange + holdings.cad + holdings.usd * exchange;
+  const usd = cash.cad / exchange + cash.usd + holdings.cad / exchange + holdings.usd;
+  return { cad, usd };
+}
+
 function updatePortfolio(transaction, contributions, portfolio) {
   const { fee = 0 } = transaction;
   const { fees = 0 } = portfolio;
@@ -80,7 +86,7 @@ function updatePortfolio(transaction, contributions, portfolio) {
 function updateContributions(transaction, portfolio) {
   const { type, cash, contributions = 0 } = transaction;
   if (type === 'contribute') {
-    return portfolio.contributions + cash['cad'];
+    return portfolio.contributions + cash.cad;
   }
   if (type === 'start' && contributions > 0) {
     return contributions;
@@ -94,12 +100,6 @@ function adjust(transaction, portfolio = startPortfolio) {
   const results = updatePortfolio(transaction, contributions, portfolio);
   const meta = buildMeta(transaction);
   return { meta, cash, holdings, trades, results };
-}
-
-function calcTotals(cash, holdings, exchange) {
-  const cad = cash.cad + cash.usd * exchange + holdings.cad + holdings.usd * exchange;
-  const usd = cash.cad / exchange + cash.usd + holdings.cad / exchange + holdings.usd;
-  return { cad, usd };
 }
 
 export function loadTransactionExchange(transactions) {
