@@ -10,8 +10,20 @@ module.exports = {
     historyApiFallback: true,
   },
   output: {
-    filename: 'main.js',
+    filename: '[name].[contenthash].js',
     path: path.join(__dirname, '/build'),
+  },
+  optimization: {
+    runtimeChunk: 'single',
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all',
+        },
+      },
+    },
   },
   module: {
     rules: [
