@@ -11,10 +11,10 @@ export const StartSummary = ({ transaction }) => {
     },
   } = transaction;
   return (
-    <div>
+    <>
       <strong>start|portfolio total (CAD)</strong>
       <Dollars value={cad} />
-    </div>
+    </>
   );
 };
 
@@ -30,13 +30,13 @@ export const BuySummary = ({ transaction }) => {
     '',
   );
   return (
-    <div>
+    <>
       <strong>
         {`buy|${label}`}|{tradesSummary}
       </strong>
       {holdingsCAD > 0 ? <Dollars value={holdingsCAD} /> : null}
       {holdingsUSD > 0 ? <Dollars value={holdingsUSD} /> : null}
-    </div>
+    </>
   );
 };
 
@@ -45,10 +45,10 @@ export const ContributeSummary = ({ transaction }) => {
     cash: { cad },
   } = transaction;
   return (
-    <div>
+    <>
       <strong>contribute|amount (CAD)</strong>
       <Dollars value={cad} />
-    </div>
+    </>
   );
 };
 
@@ -58,11 +58,11 @@ export const DividendSummary = ({ transaction }) => {
   } = transaction;
   const label = cad > 0 ? 'amount(CAD)' : 'amount(USD)';
   return (
-    <div>
+    <>
       <strong>{`dividend|${label}`}</strong>
       {cad > 0 ? <Dollars value={cad} /> : null}
       {usd > 0 ? <Dollars value={usd} /> : null}
-    </div>
+    </>
   );
 };
 
@@ -72,10 +72,10 @@ export const FeeSummary = ({ transaction }) => {
   } = transaction;
   const label = fee > 0 ? 'amount(CAD)' : 'amount(USD)';
   return (
-    <div>
+    <>
       <strong>{`fee|${label}`}</strong>
       <Dollars value={fee} />
-    </div>
+    </>
   );
 };
 
