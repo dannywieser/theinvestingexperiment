@@ -40,6 +40,20 @@ export const BuySummary = ({ transaction }) => {
   );
 };
 
+export const ConversionSummary = ({ transaction }) => {
+  const {
+    cash: { cad, usd },
+  } = transaction;
+  return (
+    <>
+      <strong>
+        conversion|{cad}CAD->{usd}US
+      </strong>
+      <Dollars value={usd} />
+    </>
+  );
+};
+
 export const ContributeSummary = ({ transaction }) => {
   const {
     cash: { cad },
@@ -85,6 +99,7 @@ const summaryMap = {
   buy: BuySummary,
   dividend: DividendSummary,
   fee: FeeSummary,
+  conversion: ConversionSummary,
 };
 
 export const TransactionSummary = ({ transaction, isDetailVisible, toggle }) => {
