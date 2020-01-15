@@ -42,5 +42,23 @@
       "cad": 32.7
     }
   },
-  { "date": "2020-01-10", "type": "contribute", "cash": { "cad": 150 } }
+  { "date": "2020-01-10", "type": "contribute", "cash": { "cad": 150 } },
+  {
+    "date": "2020-01-13",
+    "type": "buy",
+    "cash": {
+      "cad": -201.48
+    },
+    "fee": 0.02,
+    "holdings": {
+      "cad": 201.46
+    },
+    "trades": [
+      {
+        "symbol": "VEQ.TO",
+        "units": 7,
+        "price": 28.78
+      }
+    ]
+  }
 ]
