@@ -1,13 +1,15 @@
 .dollars {
   color: green;
+}
+
+.accounting {
   float: right;
 }
 
-.dollars > .value {
-  float: right;
+.inline {
 }
 
-.symbol {
+.accounting > .symbol {
   padding-right: 8px;
 }
 

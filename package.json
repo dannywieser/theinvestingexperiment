@@ -14,6 +14,7 @@
     "@material-ui/icons": "^4.5.1",
     "@nivo/line": "^0.59.3",
     "babel-polyfill": "^6.26.0",
+    "classnames": "^2.2.6",
     "express": "^4.17.1",
     "express-favicon": "^2.0.1",
     "moment": "^2.24.0",

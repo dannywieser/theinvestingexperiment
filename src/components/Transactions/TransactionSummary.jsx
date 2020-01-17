@@ -47,7 +47,10 @@ export const ConversionSummary = ({ transaction }) => {
   return (
     <>
       <strong>
-        conversion|{cad}CAD->{usd}US
+        conversion|
+        <Dollars value={cad} style="inline" />
+        CAD to <Dollars value={usd} style="inline" />
+        USD
       </strong>
       <Dollars value={usd} />
     </>
