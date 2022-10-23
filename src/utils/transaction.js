@@ -105,7 +105,7 @@ function adjust(transaction, portfolio = startPortfolio) {
 export function loadTransactionExchange(transactions) {
   return Promise.all(
     transactions.map(async toprocess => {
-      const exchange = await loadExchange(toprocess.date);
+      const exchange = await loadExchange();
       return { ...toprocess, exchange };
     }),
   );
